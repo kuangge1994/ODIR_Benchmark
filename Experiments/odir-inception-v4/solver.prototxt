@@ -1,0 +1,23 @@
+net: "./caffemodel/cls/odir-net/odir-inception-v4/inception_v4_train_test.prototxt"
+iter_size: 5
+test_iter: 250
+test_interval: 500
+test_initialization: false
+display: 100
+base_lr: 0.001
+#base_lr: 0.0001
+#lr_policy: "poly"
+lr_policy: "step"
+stepsize: 10000
+gamma: 0.1
+power: 0.9
+max_iter: 50000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 500
+#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-inception-v4/sum/odir_elt_sum_lre-4"
+#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-inception-v4/prod/odir_elt_prod"
+snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-inception-v4/concat/odir_elt_concat"
+solver_mode: GPU
+
+random_seed: 0

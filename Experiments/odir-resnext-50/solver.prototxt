@@ -1,0 +1,19 @@
+net: "./caffemodel/cls/odir-net/odir-resnext-50/train_resnext50-32x4d.prototxt"
+iter_size: 5
+test_iter: 250
+test_initialization: false
+test_interval: 500
+
+display: 100
+base_lr: 1e-3
+lr_policy: "poly"
+max_iter: 50000
+power: 0.9
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 500
+#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-resnext-50/sum/odir_elt_sum"
+#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-resnext-50/prod/odir_elt_prod"
+snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-resnext-50/concat/odir_elt_concat"
+solver_mode: GPU
+random_seed: 0

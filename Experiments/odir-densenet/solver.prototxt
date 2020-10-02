@@ -1,0 +1,22 @@
+net: "./caffemodel/cls/odir-net/odir-densenet/train_double.prototxt"
+iter_size: 5
+test_iter: 250
+test_interval: 500
+test_initialization: false
+display: 100
+base_lr: 1e-4
+#lr_policy: "step"
+lr_policy: "fixed"
+max_iter: 50000
+#power: 0.9
+#gamma: 0.1
+#stepsize: 20000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 500
+#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-densenet/sum/odir_elt_sum"
+#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-densenet/prod/odir_elt_prod"
+snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-densenet/concat/odir_elt_concat"
+solver_mode: GPU
+
+random_seed: 0
