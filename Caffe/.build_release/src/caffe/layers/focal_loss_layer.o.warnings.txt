@@ -1,0 +1,16 @@
+src/caffe/layers/focal_loss_layer.cpp: In instantiation of ‘void caffe::FocalLossLayer<Dtype>::Backward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<bool>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = float]’:
+src/caffe/layers/focal_loss_layer.cpp:115:1:   required from here
+src/caffe/layers/focal_loss_layer.cpp:80:6: warning: unused variable ‘count_neg’ [-Wunused-variable]
+  int count_neg = 0;
+      ^
+src/caffe/layers/focal_loss_layer.cpp:81:6: warning: unused variable ‘count_pos’ [-Wunused-variable]
+  int count_pos = 0;
+      ^
+src/caffe/layers/focal_loss_layer.cpp: In instantiation of ‘void caffe::FocalLossLayer<Dtype>::Backward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<bool>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = double]’:
+src/caffe/layers/focal_loss_layer.cpp:115:1:   required from here
+src/caffe/layers/focal_loss_layer.cpp:80:6: warning: unused variable ‘count_neg’ [-Wunused-variable]
+  int count_neg = 0;
+      ^
+src/caffe/layers/focal_loss_layer.cpp:81:6: warning: unused variable ‘count_pos’ [-Wunused-variable]
+  int count_pos = 0;
+      ^
