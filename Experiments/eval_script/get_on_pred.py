@@ -2,7 +2,7 @@
 import os
 import sys
 os.environ['GLOG_minloglevel'] = '2'
-caffe_root = '/home/lining/DenoiseNet/'
+caffe_root = '../Caffe/'
 sys.path.insert(0, caffe_root + 'python')
 import caffe
 import numpy as np
@@ -11,15 +11,13 @@ import csv
 
 # Use GPU
 caffe.set_mode_gpu()
-caffe.set_device(1)
+caffe.set_device(0)
 
-#net_struct = '/home/lining/DeNet/caffemodel/cls/odir-net/odir-vgg/deploy_double_concat.prototxt'
-net_struct = '/home/lining/DeNet/caffemodel/cls/odir-net/odir-vgg/deploy_double_sum.prototxt'
-#caffe_model = '/home/lining/DeNet/model/cls/odir-net/odir_origin/odir-vgg/odir_elt_sum_iter_2500.caffemodel'
+net_struct = './prototxt/odir-vgg/deploy_sum.prototxt'  #the path of deploy.prototxt (sum, prod and concat)
 
-path_test = '/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/on_test/'
-text_left = '/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/odir_stain_lst/onsite/left_nostain_onsite.txt'
-text_right = '/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/odir_stain_lst/onsite/right_nostain_onsite.txt'
+path_test = 'the path of onsite testing set'        #e.g "OIA-ODIR/On-site Test Set/Images/"
+text_left = './data_lst/left_ontest_label.txt'      #the path of left_text files in ./data_lst
+text_right = './data_lst/right_ontest_label.txt'    #the path of right_text files in ./data_lst
 
 def main(file_name = 'result.csv', caffe_model = ''):
     with open(text_left) as f:
