@@ -1,0 +1,16 @@
+net: "./prototxt/odir-vgg/train.prototxt"	#the path of train.prototxt
+iter_size: 5
+test_iter: 250
+test_interval: 500
+test_initialization: false
+display: 100
+base_lr: 1e-4
+lr_policy: "fixed"
+max_iter: 50000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 100000
+snapshot_prefix: "the path you want to save snapshot"
+solver_mode: GPU
+
+random_seed: 0

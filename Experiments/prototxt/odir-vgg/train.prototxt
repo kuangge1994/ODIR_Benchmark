@@ -1,14 +1,13 @@
 name: "VGG16"  
 
 
-## Training Stage
+# Training Stage
 layer { name: "left_data" type: "ImageData" top: "left_data" top: "label" 
 	include { phase: TRAIN } 
 	transform_param { mirror: true mean_value: 26.0917  mean_value: 48.3404 mean_value: 76.3456 } 
-	#transform_param { mirror: true mean_value: 39.5817  mean_value: 72.4559 mean_value: 113.2623 } 
 	image_data_param {
-        source: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/left_train_db_label.txt"
-		root_folder: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/train_set/"
+        source: "./data_lst/left_train_label.txt"	#the path of left_text files in ./data_lst
+		root_folder: "the path of training set"		#e.g "OIA-ODIR/Training Set/Images/"
         batch_size: 2
         new_height: 224
 		new_width: 224
@@ -20,10 +19,9 @@ layer { name: "left_data" type: "ImageData" top: "left_data" top: "label"
 layer { name: "right_data" type: "ImageData" top: "right_data" top: "redundancy_label" 
 	include { phase: TRAIN } 
 	transform_param { mirror: true mean_value: 26.0917  mean_value: 48.3404 mean_value: 76.3456 } 
-	#transform_param { mirror: true mean_value: 39.5817  mean_value: 72.4559 mean_value: 113.2623 } 
 	image_data_param {
-        source: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/right_train_db_label.txt"
-		root_folder: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/train_set/"
+        source: "./data_lst/right_train_label.txt"	#the path of right_text files in ./data_lst
+		root_folder: "the path of training set"		#e.g "OIA-ODIR/Training Set/Images/"
         batch_size: 2
         new_height: 224
 		new_width: 224
@@ -38,10 +36,9 @@ layer{ name: "silence_redundancy_label" type: "Silence" bottom: "redundancy_labe
 layer { name: "left_data" type: "ImageData" top: "left_data" top: "label"
     include { phase: TEST }
 	transform_param { mirror: true mean_value: 26.0917  mean_value: 48.3404 mean_value: 76.3456 } 
-	#transform_param { mirror: false mean_value: 39.5817  mean_value: 72.4559 mean_value: 113.2623 } 
     image_data_param {
-        source: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/left_offtest_db_label.txt"
-		root_folder: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/off_test/"
+        source: "./data_lst/left_offtest_label.txt"		#the path of left_text files in ./data_lst
+		root_folder: "the path of offsite testing set"	#e.g "OIA-ODIR/Off-site Test Set/Images/"
         batch_size: 2
         new_height: 224
 		new_width: 224
@@ -52,10 +49,9 @@ layer { name: "left_data" type: "ImageData" top: "left_data" top: "label"
 layer { name: "right_data" type: "ImageData" top: "right_data" top: "redundancy_label"
     include { phase: TEST }
 	transform_param { mirror: true mean_value: 26.0917  mean_value: 48.3404 mean_value: 76.3456 } 
-	#transform_param { mirror: false mean_value: 39.5817  mean_value: 72.4559 mean_value: 113.2623 } 
     image_data_param {
-        source: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/right_offtest_db_label.txt"
-		root_folder: "/home/lining/dataset/OIA-ODIR/odir_v1/odir_origin/off_test/"
+        source: "./data_lst/right_offtest_label.txt"	#the path of right_text files in ./data_lst
+		root_folder: "the path of offsite testing set"	#e.g "OIA-ODIR/Off-site Test Set/Images/"
         batch_size: 2
         new_height: 224
 		new_width: 224
@@ -712,7 +708,7 @@ layer {
 	}
 }
 
-## concat left and right features
+#Concat left and right features
 #layer {
 #  name: "concat_fc7_1"
 #  type: "Concat"
@@ -735,6 +731,8 @@ layer {
 #	#axis: 1
 #  }
 #}
+
+#SUM or PROD operating
 layer { name: "eltwise_fc7_1" type: "Eltwise" bottom: "fc7_1_left" bottom: "fc7_1_right" top: "fc7_1" 
 	eltwise_param { 
 		operation: SUM 
@@ -755,11 +753,9 @@ layer {
   top: "fc8"
   concat_param {
     concat_dim: 0
-	#axis: 0
   }
 }
 
-#layer { name: "conv_fuse" type: "Convolution" bottom: "fc8" top: "fc8" convolution_param { num_output: 8192 kernel_size: 1 } }
 
 layer {name: "ip_1" type: "InnerProduct" bottom: "fc8" top: "ip_1" param { lr_mult: 1 decay_mult: 1 } param { lr_mult: 2 decay_mult: 0 } inner_product_param { num_output: 2 weight_filler {type: "gaussian" std: 0.005 } bias_filler { type: "constant" value: 0.1 } } }
 
