@@ -1,4 +1,4 @@
-net: "./caffemodel/cls/odir-net/odir-caffeNet/train_val.prototxt"
+net: "./prototxt/odir-caffenet/train_val.prototxt"
 iter_size: 5
 test_iter: 250
 test_interval: 500
@@ -12,9 +12,7 @@ max_iter: 50000
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 500
-#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-caffenet/sum/odir_elt_sum"
-#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-caffenet/prod/odir_elt_prod"
-snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-caffenet/concat/odir_elt_concat"
+snapshot_prefix: "the path you want to save snapshot"
 solver_mode: GPU
 
 random_seed: 0

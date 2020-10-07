@@ -1,26 +1,4 @@
-#net: "./caffemodel/cls/odir-net/odir-resnet-18/train_double.prototxt"
-#iter_size: 5
-#test_iter: 250
-#test_initialization: false
-#test_interval: 500
-#
-#display: 100
-#base_lr: 1e-3
-#lr_policy: "poly"
-#max_iter: 50000
-#power: 0.9
-#momentum: 0.9
-#weight_decay: 0.0005
-#snapshot: 500
-##snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-resnet-18/sum/odir_elt_sum"
-##snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-resnet-18/prod/odir_elt_prod"
-#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-resnet-18/concat/odir_elt_concat"
-#solver_mode: GPU
-#random_seed: 0
-
-
-# Revise
-net: "./caffemodel/cls/odir-net/odir-resnet-18/train_double.prototxt"
+net: "./prototxt/odir-resnet-18/train.prototxt"
 iter_size: 5
 test_iter: 250
 test_initialization: false
@@ -28,14 +6,13 @@ test_interval: 500
 
 display: 100
 base_lr: 1e-3
-#lr_policy: "poly"
-lr_policy: "fixed"
+lr_policy: "poly"
 max_iter: 50000
 power: 0.9
 momentum: 0.9
 weight_decay: 0.0005
-#snapshot: 500
-snapshot: 100000
-snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-revise/resnet18/revise_poly_lr4"
+snapshot: 500
+snapshot_prefix: "the path you want to save snapshot"
 solver_mode: GPU
 random_seed: 0
+

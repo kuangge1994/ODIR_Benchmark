@@ -1,4 +1,4 @@
-net: "/home/lining/DeNet/caffemodel/cls/odir-net/odir-resnet-50/ResNet_50_train_val.prototxt"
+net: "./prototxt/odir-resnet-50/ResNet_50_train_val.prototxt"
 iter_size: 5
 test_iter: 250
 test_interval: 500
@@ -11,9 +11,7 @@ power: 0.9
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 500
-#snapshot_prefix: "/home/lining/DeNet/model/cls/odir-net/odir_origin/odir-resnet-50/sum/odir_elt_sum"
-#snapshot_prefix: "/home/lining/DeNet/model/cls/odir-net/odir_origin/odir-resnet-50/prod/odir_elt_prod"
-snapshot_prefix: "/home/lining/DeNet/model/cls/odir-net/odir_origin/odir-resnet-50/concat/odir_elt_concat"
+snapshot_prefix: "the path you want to save snapshot"
 solver_mode: GPU
 
 random_seed: 0

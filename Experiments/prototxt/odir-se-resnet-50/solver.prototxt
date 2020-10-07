@@ -1,4 +1,4 @@
-net:"./caffemodel/cls/odir-net/odir-se-resnet-50/SE-ResNet-50.prototxt"
+net:"./prototxt/odir-se-resnet-50/SE-ResNet-50.prototxt"
 iter_size: 5
 test_iter: 250
 test_interval: 500
@@ -7,14 +7,11 @@ display: 100
 base_lr: 1e-5
 lr_policy: "poly"
 max_iter: 50000
-#power: 0.99
 power: 0.9
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 500
-#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-se-resnet-50/sum/odir_elt_sum"
-#snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-se-resnet-50/prod/odir_elt_prod"
-snapshot_prefix: "./model/cls/odir-net/odir_origin/odir-se-resnet-50/concat/odir_elt_concat"
+snapshot_prefix: "the path you want to save snapshot"
 solver_mode: GPU
 
 random_seed: 0
